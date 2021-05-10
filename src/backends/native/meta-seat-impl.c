@@ -77,22 +77,6 @@ static MetaOpenDeviceCallback  device_open_callback;
 static MetaCloseDeviceCallback device_close_callback;
 static gpointer                device_callback_data;
 
-#ifdef CLUTTER_ENABLE_DEBUG
-static const char *device_type_str[] = {
-  "pointer",            /* CLUTTER_POINTER_DEVICE */
-  "keyboard",           /* CLUTTER_KEYBOARD_DEVICE */
-  "extension",          /* CLUTTER_EXTENSION_DEVICE */
-  "joystick",           /* CLUTTER_JOYSTICK_DEVICE */
-  "tablet",             /* CLUTTER_TABLET_DEVICE */
-  "touchpad",           /* CLUTTER_TOUCHPAD_DEVICE */
-  "touchscreen",        /* CLUTTER_TOUCHSCREEN_DEVICE */
-  "pen",                /* CLUTTER_PEN_DEVICE */
-  "eraser",             /* CLUTTER_ERASER_DEVICE */
-  "cursor",             /* CLUTTER_CURSOR_DEVICE */
-  "pad",                /* CLUTTER_PAD_DEVICE */
-};
-#endif /* CLUTTER_ENABLE_DEBUG */
-
 enum
 {
   PROP_0,
