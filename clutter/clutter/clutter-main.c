@@ -2274,6 +2274,19 @@ clutter_remove_debug_flags (ClutterDebugFlag     debug_flags,
 }
 
 void
+clutter_get_debug_flags (ClutterDebugFlag     *debug_flags,
+                         ClutterDrawDebugFlag *draw_flags,
+                         ClutterPickDebugFlag *pick_flags)
+{
+  if (debug_flags)
+    *debug_flags = clutter_debug_flags;
+  if (draw_flags)
+    *draw_flags = clutter_paint_debug_flags;
+  if (pick_flags)
+    *pick_flags = clutter_pick_debug_flags;
+}
+
+void
 _clutter_set_sync_to_vblank (gboolean sync_to_vblank)
 {
   clutter_sync_to_vblank = !!sync_to_vblank;
