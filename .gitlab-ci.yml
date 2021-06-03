@@ -12,12 +12,12 @@ stages:
 .mutter.fedora:34@common:
   variables:
     FDO_DISTRIBUTION_VERSION: 34
-    BASE_TAG: '2021-05-14.1'
+    BASE_TAG: '2021-06-03.2'
     FDO_UPSTREAM_REPO: GNOME/mutter
     FDO_DISTRIBUTION_EXEC: |
       dnf install -y 'dnf-command(builddep)' &&
 
-      dnf install -y gdm gnome-shell xorg-x11-server-Xvfb sassc gcovr \
+      dnf install -y gdm gnome-shell xorg-x11-server-Xvfb sassc gcovr gcc-c++ \
         --setopt=install_weak_deps=False &&
       dnf builddep -y mutter --setopt=install_weak_deps=False &&
       dnf builddep -y gnome-shell --setopt=install_weak_deps=False &&
@@ -25,6 +25,10 @@ stages:
       dnf remove -y gnome-bluetooth-libs-devel &&
       dnf remove -y --noautoremove mutter mutter-devel &&
       dnf remove -y --noautoremove gnome-shell &&
+
+      ./.gitlab-ci/install-meson-project.sh \
+          https://gitlab.freedesktop.org/wayland/wayland-protocols.git \
+          1.21 . &&
 
       dnf clean all
 
