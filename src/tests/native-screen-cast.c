@@ -74,6 +74,11 @@ meta_test_screen_cast_record_virtual (void)
                                  test_client_exited,
                                  loop);
   g_main_loop_run (loop);
+
+  if (g_subprocess_get_if_exited (subprocess))
+    g_assert_cmpint (g_subprocess_get_status (subprocess), ==, 0);
+  if (g_subprocess_get_if_signaled (subprocess))
+    g_assert_cmpint (g_subprocess_get_term_sig (subprocess), ==, 0);
   g_assert_true (g_subprocess_get_successful (subprocess));
   g_object_unref (subprocess);
 }
