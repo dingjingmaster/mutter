@@ -1,8 +1,0 @@
-/* Mutter version */
-#mesondefine MUTTER_VERSION
-
-/* List of Cogl drivers */
-#mesondefine CLUTTER_DRIVERS
-
-/* Supports PangoFt2 */
-#mesondefine HAVE_PANGO_FT2
